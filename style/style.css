@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* background: black; */
+}
+
+
+
+.label {
+    width: 80px;
+    height: 40px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 20px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.label:after {
+    content: "";
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    border-radius: 20px;
+    top: 4px;
+    left: 4px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.input:checked+.label {
+    background: #242424;
+}
+
+.input:checked+.label::after {
+    left: 75px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.label,
+.label::after {
+    transition: 0.3s;
+}
+
+.label:active::after {
+    width: 60px;
+}
+
+.label i {
+    position: absolute;
+    width: 120px;
+    top: 14px;
+    z-index: 100;
+}
+
+.label .fa-sun {
+    right: 1px;
+    top: 70px;
+    fill: #fff;
+    transition: all 0.3s;
+}
+
+.label .fa-moon {
+    left: 52px;
+    top: 20px;
+    fill: #7e7e7e;
+    transition: all 0.3s;
+}
+
+.input:checked+.label .fa-sun {
+    fill: #7e7e7e;
+}
+
+.input:checked+.label .fa-moon {
+    fill: #fff;
+}
